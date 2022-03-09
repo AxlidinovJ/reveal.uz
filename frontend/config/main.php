@@ -7,12 +7,17 @@ $params = array_merge(
 );
 
 return [
+    'language'=>'uz',
+    'layout'=>'reveal',
+    'defaultRoute'=>'reveal/index',
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    // 'homeUrl' => '/',
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [
+             'baseUrl'=>'/',
             'csrfParam' => '_csrf-frontend',
         ],
         'user' => [
@@ -36,14 +41,25 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
+       
         'urlManager' => [
+            'baseUrl'=>'/',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
+        'assetManager' => [
+            'bundles' => [
+                'yii\bootstrap4\BootstrapAsset' => [
+                    'sourcePath' => null,
+                    'baseUrl' => '',
+                    'css' => [
+                        'assets/vendor/bootstrap/css/bootstrap.min.css'
+                    ],
+                ],
+            ],
+        ],
     ],
     'params' => $params,
 ];

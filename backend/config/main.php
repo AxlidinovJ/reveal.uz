@@ -7,13 +7,26 @@ $params = array_merge(
 );
 
 return [
+    'defaultRoute'=>'dashboard/index',
+    'language'=>'uz',
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'modules' => [],
+    'modules' => [
+        'translate-manager' => [
+            'class' => 'wokster\translationmanager\TranslationManager',
+            'languages' => ['uz','ru','en'],
+        ],
+    ],
+    'container'=>[
+        'definitions' => [
+            \yii\widgets\LinkPager::class => \yii\bootstrap4\LinkPager::class,
+        ],
+    ],
     'components' => [
         'request' => [
+            'baseUrl'=>'/admin',
             'csrfParam' => '_csrf-backend',
         ],
         'user' => [
@@ -37,14 +50,32 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
+      
         'urlManager' => [
+            'baseUrl'=>'/admin',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [
+            'suffix'=>'.html',
+        ],
+        'assetManager' => [
+            // override bundles to use CDN :
+            'bundles' => [
+                // 'yii\web\JqueryAsset' => [
+                //     'sourcePath' => null,
+                //     'baseUrl' => '',
+                //     'js' => [
+                //         'js/jquery.js'
+                //     ],
+                // ],
+                'yii\bootstrap4\BootstrapAsset' => [
+                    'sourcePath' => null,
+                    'baseUrl' => '',
+                    'css' => [
+                        'bower_components/bootstrap/dist/css/bootstrap.min.css'
+                    ],
+                ],
             ],
         ],
-        */
     ],
     'params' => $params,
 ];

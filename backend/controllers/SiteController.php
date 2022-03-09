@@ -4,48 +4,15 @@ namespace backend\controllers;
 
 use common\models\LoginForm;
 use Yii;
-use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
 
-/**
- * Site controller
- */
-class SiteController extends Controller
-{
-    /**
-     * {@inheritdoc}
-     */
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'actions' => ['login', 'error'],
-                        'allow' => true,
-                    ],
-                    [
-                        'actions' => ['logout', 'index'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
 
-    /**
-     * {@inheritdoc}
-     */
+class SiteController extends DefaultController
+{
+ 
+  
     public function actions()
     {
         return [
