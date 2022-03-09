@@ -14,6 +14,11 @@ class m220309_103621_create_contact_table extends Migration
     {
         $this->createTable('{{%contact}}', [
             'id' => $this->primaryKey(),
+            'name'=>$this->string(),
+            'phone'=>$this->string(),
+            'title'=>$this->string(),
+            'content'=>$this->text(),
+            
         ]);
     }
 

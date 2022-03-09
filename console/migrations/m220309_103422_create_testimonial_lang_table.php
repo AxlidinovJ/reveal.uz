@@ -19,9 +19,9 @@ class m220309_103422_create_testimonial_lang_table extends Migration
             'name'=>$this->string(),
             'field'=>$this->string(),
             'text'=>$this->string(),
-
-
         ]);
+        $this->addForeignKey('fk_testimonial_lang','{{%testimonial_lang}}','owner_id','{{%testimonial}}','id','CASCADE','CASCADE');
+
     }
 
     /**
@@ -29,6 +29,7 @@ class m220309_103422_create_testimonial_lang_table extends Migration
      */
     public function safeDown()
     {
+        $this->dropForeignKey('fk_testimonial_lang','{{%testimonial_lang}}');
         $this->dropTable('{{%testimonial_lang}}');
     }
 }
