@@ -13,7 +13,7 @@ return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    // 'homeUrl' => '/',
+    'homeUrl' => '/',
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [

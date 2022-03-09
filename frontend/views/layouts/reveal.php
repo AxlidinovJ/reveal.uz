@@ -5,7 +5,7 @@ use common\widgets\Alert;
 use frontend\assets\RevealAsset;
 use yii\bootstrap4\Breadcrumbs;
 use yii\bootstrap4\Html;
-
+use yii\helpers\Url;
 
 RevealAsset::register($this);
 ?>
@@ -49,9 +49,9 @@ RevealAsset::register($this);
             <div class="container d-flex justify-content-between">
 
                 <div id="logo">
-                    <h1><a href="index.html">Reve<span>al</span></a></h1>
+                    <h1><a href="<?=Url::home()?>">Reve<span>al</span></a></h1>
                     <!-- Uncomment below if you prefer to use an image logo -->
-                    <!-- <a href="index.html"><img src="assets/img/logo.png" alt=""></a>-->
+                    <!-- <a href="<?=Url::home()?>html"><img src="assets/img/logo.png" alt=""></a> -->
                 </div>
 
                 <nav id="navbar" class="navbar">

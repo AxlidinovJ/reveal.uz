@@ -55,7 +55,7 @@ return [
             'baseUrl'=>'/admin',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'suffix'=>'.html',
+            // 'suffix'=>'.html',
         ],
         'assetManager' => [
             // override bundles to use CDN :
