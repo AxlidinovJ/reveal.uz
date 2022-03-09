@@ -151,6 +151,26 @@ $addClass = $session->get('sidebar') ;//?? 'sidebar-collapse';
                             ]),
                         ],
                         [
+                            'label'=>'<i class="fa fa-header"></i><span>Header</span>',
+                            'url'=>url::to(['/header/index']),
+                            'active' => in_array(Yii::$app->controller->getRoute(), [
+                                'header/index',
+                                'header/view',
+                                'header/update',
+                                'header/create',
+                            ]),
+                        ],
+                        [
+                            'label'=>'<i class="fa fa-question-circle"></i><span>About</span>',
+                            'url'=>url::to(['/about/index']),
+                            'active' => in_array(Yii::$app->controller->getRoute(), [
+                                'about/index',
+                                'about/view',
+                                'about/update',
+                                'about/create',
+                            ]),
+                        ],
+                        [
                             'label'=>'<i class="fa fa-reddit-square" aria-hidden="true"></i><span>Bot sozlamalri</span>',
                             'url'=>url::to(['/bot/index']),
                             'active' => in_array(Yii::$app->controller->getRoute(), [
