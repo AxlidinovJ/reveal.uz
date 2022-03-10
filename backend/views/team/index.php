@@ -1,5 +1,6 @@
 <?php
 
+use common\models\Team;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -29,11 +30,18 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            // 'id',
             'name',
-            'img',
+            // 'img',
+            [
+                'attribute'=>'img',
+                'format'=>'html',
+                'value'=>function($data){
+                    return html::img("/backend/web/images/team/".$data->img,['width'=>'100px']);
+                }
+            ],
             'field',
-            'twitter',
+            // 'twitter',
             //'telegram',
             //'ok',
             //'linkedin',

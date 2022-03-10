@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "team".
@@ -28,9 +29,13 @@ class Team extends \yii\db\ActiveRecord
         return 'team';
     }
 
-    /**
-     * {@inheritdoc}
-     */
+   public function behaviors()
+   {
+       return [
+            TimestampBehavior::class,
+       ];
+   }
+    
     public function rules()
     {
         return [

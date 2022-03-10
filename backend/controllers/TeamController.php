@@ -81,23 +81,27 @@ class TeamController extends DefaultController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $nomi = $model->img ;
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
+        if ($this->request->isPost) {
+            if ($model->load($this->request->post())) {
+                $img = UploadedFile::getInstance($model,'img');
+                    if($img){
+                        $nomi  = Yii::$app->getSecurity()->generateRandomString(20).".".$img->extension;
+                        $img->saveAs('images/team/'.$nomi);
+                        $model->img = $nomi;
+                    }
+                    $model->save();
+                }
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
 
         return $this->render('update', [
             'model' => $model,
         ]);
     }
 
-    /**
-     * Deletes an existing Team model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param int $id ID
-     * @return \yii\web\Response
-     * @throws NotFoundHttpException if the model cannot be found
-     */
+  
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();

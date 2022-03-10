@@ -31,14 +31,34 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
-            'img',
+            // 'img',
+            [
+                'attribute'=>'img',
+                'format'=>'html',
+                'value'=>function($data){
+                    return html::img("/backend/web/images/team/".$data->img,['width'=>'100px']);
+                }
+            ],
             'field',
             'twitter',
             'telegram',
             'ok',
             'linkedin',
-            'created_at',
-            'updated_at',
+            [
+                'attribute'=>'created_at',
+                'format'=>'html',
+                'value'=>function($data){
+                    return date('d-M Y',$data->created_at); 
+                }
+            ],
+
+            [
+                'attribute'=>'updated_at',
+                'format'=>'html',
+                'value'=>function($data){
+                    return date('d-M Y',$data->updated_at); 
+                }
+            ],
         ],
     ]) ?>
 
