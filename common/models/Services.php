@@ -10,9 +10,9 @@ use yii\behaviors\TimestampBehavior;
 
 class Services extends \yii\db\ActiveRecord
 {
-    /**
-     * {@inheritdoc}
-     */
+    use MultilingualLabelsTrait;
+
+    
     public static function tableName()
     {
         return 'services';

@@ -1,6 +1,8 @@
 <?php
 
+use common\models\Imgs;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
@@ -64,5 +66,29 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ],
     ]) ?>
+
+    <h3>Rasmlari</h3>
+   <?php
+   $rasmlar = Imgs::find()->where(['products_id'=>$model->id])->all();
+   if(count($rasmlar)>0){
+    foreach($rasmlar as $rasm){
+        echo html::a(
+            html::img('/backend/web/images/imgs/'.$rasm->name,
+            ['height'=>'150px']
+         ),
+         Url::to([
+             '/portfolio/deleteimg',
+             'id'=>$rasm->id,
+             ]),[
+                 'data'=>[
+                     'confirm'=>"Rasmni o'chirmoqchimisz",
+                 ],
+             ]);
+    }
+   }else{
+       echo "<h4>mavhud emas</h4>";
+   }
+
+   ?>
 
 </div>

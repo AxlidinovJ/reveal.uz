@@ -6,8 +6,8 @@ use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
-/* @var $this yii\web\View */
-/* @var $dataProvider yii\data\ActiveDataProvider */
+
+use kartik\export\ExportMenu;
 
 $this->title = Yii::t('app', 'Services');
 $this->params['breadcrumbs'][] = $this->title;
@@ -22,11 +22,40 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php Pjax::begin(); ?>
 
-    <?= GridView::widget([
+
+    <?php
+    
+    $gridColumns = [
+        ['class' => 'yii\grid\SerialColumn'],
+        'id',
+        'img',
+        'title',
+        'content',
+        ['class' => 'yii\grid\ActionColumn'],
+    ];
+    
+    // // Renders a export dropdown menu
+    // echo ExportMenu::widget([
+    //     'dataProvider' => $dataProvider,
+    //     'columns' => $gridColumns,
+    //     'clearBuffers' => true, //optional
+    // ]);
+    
+    // // You can choose to render your own GridView separately
+    // echo \kartik\grid\GridView::widget([
+    //     'dataProvider' => $dataProvider,
+    //     'filterModel' => $searchModel,
+    //     'columns' => $gridColumns
+    // ]);
+    
+    ?>
+
+    <?php echo GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
+            [
+                'class' => 'yii\grid\SerialColumn',
+            ],
             'id',
             'img',
             'title',
@@ -39,6 +68,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ],
     ]); ?>
+
 
     <?php Pjax::end(); ?>
 

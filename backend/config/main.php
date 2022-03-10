@@ -18,6 +18,10 @@ return [
             'class' => 'wokster\translationmanager\TranslationManager',
             'languages' => ['uz','ru','en'],
         ],
+        'gridview' => [
+            'class' => 'kartik\grid\Module',
+            // other module settings
+        ]
     ],
     'container'=>[
         'definitions' => [

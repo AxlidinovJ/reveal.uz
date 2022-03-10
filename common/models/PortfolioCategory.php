@@ -48,4 +48,9 @@ class PortfolioCategory extends \yii\db\ActiveRecord
             'updated_at' => Yii::t('app', 'Updated At'),
         ];
     }
+
+    public function  getCategoryPartfolioCount(){
+
+        return $this->hasMany(Portfolio::class,['category_id' => 'id'])->count();
+    }
 }

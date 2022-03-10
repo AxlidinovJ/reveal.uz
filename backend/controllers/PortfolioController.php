@@ -106,13 +106,7 @@ class PortfolioController extends DefaultController
         return $this->redirect(['index']);
     }
 
-    /**
-     * Finds the Portfolio model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $id ID
-     * @return Portfolio the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
+  
     protected function findModel($id)
     {
         if (($model = Portfolio::find()->multilingual()->where(['id' => $id])->one()) !== null) {
@@ -121,4 +115,17 @@ class PortfolioController extends DefaultController
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
+
+
+
+    public function actionDeleteimg($id){
+        $model = Imgs::findOne($id);
+        if(file_exists('images/imgs/'.$model->name)){
+            unlink('images/imgs/'.$model->name);
+            $model->delete();
+        }
+        return $this->redirect(Yii::$app->request->referrer);
+    }
+
+
 }

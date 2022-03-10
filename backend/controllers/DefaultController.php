@@ -32,7 +32,7 @@ class DefaultController extends Controller
             'verb' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['POST']
+                    'delete' => ['POST'],
                 ]
             ]
         ];

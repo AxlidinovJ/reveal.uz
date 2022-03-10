@@ -18,7 +18,7 @@ class PortfolioSearch extends Portfolio
     {
         return [
             [['id', 'date', 'created_at', 'updated_at'], 'integer'],
-            [['category_id'], 'safe'],
+            [['category_id','title'], 'safe'],
         ];
     }
 
@@ -65,7 +65,10 @@ class PortfolioSearch extends Portfolio
             'updated_at' => $this->updated_at,
         ]);
         $query->joinWith('category');
+        $query->joinWith('translations');
+
         $query->andFilterWhere(['like', 'title', $this->category_id]);
+        $query->andFilterWhere(['like', 'portfolio_lang.title', $this->title]);
 
         return $dataProvider;
     }
