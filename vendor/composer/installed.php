@@ -751,6 +751,15 @@
             'reference' => '6964c76c7804814a842473e0c8fd15bab0f18e25',
             'dev_requirement' => true,
         ),
+        'wokster/yii2-translation-manager' => array(
+            'pretty_version' => 'v1.1',
+            'version' => '1.1.0.0',
+            'type' => 'yii2-extension',
+            'install_path' => __DIR__ . '/../wokster/yii2-translation-manager',
+            'aliases' => array(),
+            'reference' => 'c5f1294ba717b3f70df062cf63a50a8249194df2',
+            'dev_requirement' => false,
+        ),
         'yeesoft/yii2-multilingual' => array(
             'pretty_version' => '1.0.3',
             'version' => '1.0.3.0',

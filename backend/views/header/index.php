@@ -27,10 +27,22 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'img',
-            'created_at',
-            'updated_at',
+            // 'id',
+            // 'img',
+            // 'created_at',
+            // 'updated_at',
+            'title',
+            [
+                'attribute'=>'img',
+                'format'=>'html',
+                'value'=>function($data){
+                    return html::img('/backend/web/images/header/'.$data->img,['width'=>'300px']);
+                }
+            ],
+
+           'about_btn',
+           'project_btn',
+
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Header $model, $key, $index, $column) {

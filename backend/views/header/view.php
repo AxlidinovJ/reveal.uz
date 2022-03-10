@@ -30,9 +30,32 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'img',
-            'created_at',
-            'updated_at',
+            'title',
+            [
+                'attribute'=>'img',
+                'format'=>'html',
+                'value'=>function($data){
+                    return html::img('/backend/web/images/header/'.$data->img,['width'=>'400px']);
+                }
+            ],
+
+           'about_btn',
+           'project_btn',
+            [
+                'attribute'=>'created_at',
+                'format'=>'html',
+                'value'=>function($data){
+                    return date('d-M Y',$data->created_at); 
+                }
+            ],
+
+            [
+                'attribute'=>'updated_at',
+                'format'=>'html',
+                'value'=>function($data){
+                    return date('d-M Y',$data->updated_at); 
+                }
+            ],
         ],
     ]) ?>
 

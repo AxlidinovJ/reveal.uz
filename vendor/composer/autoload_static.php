@@ -40,6 +40,10 @@ class ComposerStaticInit36e083cfcfc596504e5b6e702434962f
             'yii\\' => 4,
             'yeesoft\\multilingual\\' => 21,
         ),
+        'w' => 
+        array (
+            'wokster\\translationmanager\\' => 27,
+        ),
         'p' => 
         array (
             'phpDocumentor\\Reflection\\' => 25,
@@ -147,6 +151,10 @@ class ComposerStaticInit36e083cfcfc596504e5b6e702434962f
         'yeesoft\\multilingual\\' => 
         array (
             0 => __DIR__ . '/..' . '/yeesoft/yii2-multilingual/src',
+        ),
+        'wokster\\translationmanager\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/wokster/yii2-translation-manager',
         ),
         'phpDocumentor\\Reflection\\' => 
         array (

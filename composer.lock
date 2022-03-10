@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e40ccee876f48ce117e2a63bd2e28fec",
+    "content-hash": "f9be5433517aeded46facb15f6c77ad1",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -911,6 +911,53 @@
                 }
             ],
             "time": "2021-05-27T09:17:38+00:00"
+        },
+        {
+            "name": "wokster/yii2-translation-manager",
+            "version": "v1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wokster/yii2-translation-manager.git",
+                "reference": "c5f1294ba717b3f70df062cf63a50a8249194df2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wokster/yii2-translation-manager/zipball/c5f1294ba717b3f70df062cf63a50a8249194df2",
+                "reference": "c5f1294ba717b3f70df062cf63a50a8249194df2",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": ">=2.0.6"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "wokster\\translationmanager\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Maksym Tymofeiev",
+                    "email": "wokster@list.ru"
+                }
+            ],
+            "description": "CRUD for storage and editing of translations in a database. Works with a common Yii2 solution (yii i18n DbMessageSource)",
+            "keywords": [
+                "db",
+                "extension",
+                "manager",
+                "translation",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/wokster/yii2-translation-manager/issues",
+                "source": "https://github.com/wokster/yii2-translation-manager/tree/v1.1"
+            },
+            "time": "2016-09-07T19:16:15+00:00"
         },
         {
             "name": "yeesoft/yii2-multilingual",
@@ -5657,7 +5704,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wokster/yii2-translation-manager": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

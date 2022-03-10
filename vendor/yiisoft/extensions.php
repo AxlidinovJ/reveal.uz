@@ -66,4 +66,13 @@ return array (
       '@yeesoft/multilingual' => $vendorDir . '/yeesoft/yii2-multilingual/src',
     ),
   ),
+  'wokster/yii2-translation-manager' => 
+  array (
+    'name' => 'wokster/yii2-translation-manager',
+    'version' => '1.1.0.0',
+    'alias' => 
+    array (
+      '@wokster/translationmanager' => $vendorDir . '/wokster/yii2-translation-manager',
+    ),
+  ),
 );

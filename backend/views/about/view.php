@@ -30,9 +30,39 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'img',
-            'created_at',
-            'updated_at',
+            // 'img',
+            'title',
+            'subtitle',
+            // 'items',
+            [
+                'attribute'=>'items',
+                'format'=>'html',
+                'value'=>function($data){
+                    return str_replace("\n","<br>",$data->items);
+                }   
+            ],
+            [
+                'attribute'=>'img',
+                'format'=>'html',
+                'value'=>function($data){
+                    return html::img('/backend/web/images/about/'.$data->img,['width'=>'300px']);
+                }
+            ],
+            [
+                'attribute'=>'created_at',
+                'format'=>'html',
+                'value'=>function($data){
+                    return date('d-M Y',$data->created_at); 
+                }
+            ],
+
+            [
+                'attribute'=>'updated_at',
+                'format'=>'html',
+                'value'=>function($data){
+                    return date('d-M Y',$data->updated_at); 
+                }
+            ],
         ],
     ]) ?>
 

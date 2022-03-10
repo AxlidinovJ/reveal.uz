@@ -16,7 +16,7 @@ class m220309_103305_create_portfolio_table extends Migration
             'id' => $this->primaryKey(),
             'category_id'=>$this->integer(),
             'date'=>$this->integer(),
-            'url'=>$this->string(),
+            'img'=>$this->string(),
             'created_at'=>$this->integer(),
             'updated_at'=>$this->integer(),
         ]);

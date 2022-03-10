@@ -5100,6 +5100,56 @@
             "install-path": "../webmozart/assert"
         },
         {
+            "name": "wokster/yii2-translation-manager",
+            "version": "v1.1",
+            "version_normalized": "1.1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wokster/yii2-translation-manager.git",
+                "reference": "c5f1294ba717b3f70df062cf63a50a8249194df2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wokster/yii2-translation-manager/zipball/c5f1294ba717b3f70df062cf63a50a8249194df2",
+                "reference": "c5f1294ba717b3f70df062cf63a50a8249194df2",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": ">=2.0.6"
+            },
+            "time": "2016-09-07T19:16:15+00:00",
+            "type": "yii2-extension",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "wokster\\translationmanager\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Maksym Tymofeiev",
+                    "email": "wokster@list.ru"
+                }
+            ],
+            "description": "CRUD for storage and editing of translations in a database. Works with a common Yii2 solution (yii i18n DbMessageSource)",
+            "keywords": [
+                "db",
+                "extension",
+                "manager",
+                "translation",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/wokster/yii2-translation-manager/issues",
+                "source": "https://github.com/wokster/yii2-translation-manager/tree/v1.1"
+            },
+            "install-path": "../wokster/yii2-translation-manager"
+        },
+        {
             "name": "yeesoft/yii2-multilingual",
             "version": "1.0.3",
             "version_normalized": "1.0.3.0",

@@ -171,6 +171,88 @@ $addClass = $session->get('sidebar') ;//?? 'sidebar-collapse';
                             ]),
                         ],
                         [
+                            'label'=>'<i class="fa fa-window-restore"></i><span>Servislar</span>',
+                            'url'=>url::to(['/services/index']),
+                            'active' => in_array(Yii::$app->controller->getRoute(), [
+                                'services/index',
+                                'services/view',
+                                'services/update',
+                                'services/create',
+                            ]),
+                        ],
+                        [
+                            'label'=>'<i class="fa fa-star-half-o"></i><span>Klentlar</span>',
+                            'url'=>url::to(['/clients/index']),
+                            'active' => in_array(Yii::$app->controller->getRoute(), [
+                                'clients/index',
+                                'clients/view',
+                                'clients/update',
+                                'clients/create',
+                            ]),
+                        ],
+                       
+                        [
+                            'label'=>'<i class="fa fa-life-ring"></i><span>Portfolio Kategory</span>',
+                            'url'=>url::to(['/portfoliocategory/index']),
+                            'active' => in_array(Yii::$app->controller->getRoute(), [
+                                'portfoliocategory/index',
+                                'portfoliocategory/view',
+                                'portfoliocategory/update',
+                                'portfoliocategory/create',
+                            ]),
+                        ],
+                        [
+                            'label'=>'<i class="fa fa-life-ring"></i><span>Portfolio</span>',
+                            'url'=>url::to(['/portfolio/index']),
+                            'active' => in_array(Yii::$app->controller->getRoute(), [
+                                'portfolio/index',
+                                'portfolio/view',
+                                'portfolio/update',
+                                'portfolio/create',
+                            ]),
+                        ],
+                        
+                        [
+                            'label'=>'<i class="fa fa-user-circle-o"></i><span>Testimonial</span>',
+                            'url'=>url::to(['/testimonial/index']),
+                            'active' => in_array(Yii::$app->controller->getRoute(), [
+                                'testimonial/index',
+                                'testimonial/view',
+                                'testimonial/update',
+                                'testimonial/create',
+                            ]),
+                        ],
+                        [
+                            'label'=>'<i class="fa fa-github"></i><span>Team</span>',
+                            'url'=>url::to(['/team/index']),
+                            'active' => in_array(Yii::$app->controller->getRoute(), [
+                                'team/index',
+                                'team/view',
+                                'team/update',
+                                'team/create',
+                            ]),
+                        ],
+                        [
+                            'label'=>'<i class="fa fa-github"></i><span>Kontakt us</span>',
+                            'url'=>url::to(['/contactus/index']),
+                            'active' => in_array(Yii::$app->controller->getRoute(), [
+                                'contactus/index',
+                                'contactus/view',
+                                'contactus/update',
+                                'contactus/create',
+                            ]),
+                        ],
+                        [
+                            'label'=>'<i class="fa fa-github"></i><span>Kontakt</span>',
+                            'url'=>url::to(['/contact/index']),
+                            'active' => in_array(Yii::$app->controller->getRoute(), [
+                                'contact/index',
+                                'contact/view',
+                                'contact/update',
+                                'contact/create',
+                            ]),
+                        ],
+                        [
                             'label'=>'<i class="fa fa-reddit-square" aria-hidden="true"></i><span>Bot sozlamalri</span>',
                             'url'=>url::to(['/bot/index']),
                             'active' => in_array(Yii::$app->controller->getRoute(), [
