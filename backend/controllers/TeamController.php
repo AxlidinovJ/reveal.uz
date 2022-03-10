@@ -4,38 +4,18 @@ namespace backend\controllers;
 
 use common\models\Team;
 use backend\models\TeamSearch;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * TeamController implements the CRUD actions for Team model.
  */
-class TeamController extends Controller
+class TeamController extends DefaultController
 {
-    /**
-     * @inheritDoc
-     */
-    public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
-    }
-
-    /**
-     * Lists all Team models.
-     *
-     * @return string
-     */
+   
     public function actionIndex()
     {
         $searchModel = new TeamSearch();
@@ -70,9 +50,18 @@ class TeamController extends Controller
         $model = new Team();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
+            if ($model->load($this->request->post())) {
+                $img = UploadedFile::getInstance($model,'img');
+                if($img){
+                    $nomi  = Yii::$app->getSecurity()->generateRandomString(20).".".$img->extension;
+                    $img->saveAs('images/team/'.$nomi);
+                    $model->img = $nomi;
+                   }else{
+                        $model->img = "no-img.jpg";
+                   }
+                   $model->save();
+                }
                 return $this->redirect(['view', 'id' => $model->id]);
-            }
         } else {
             $model->loadDefaultValues();
         }

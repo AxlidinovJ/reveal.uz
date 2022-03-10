@@ -18,7 +18,8 @@ class TestimonialSearch extends Testimonial
     {
         return [
             [['id'], 'integer'],
-            [['img'], 'safe'],
+            [[ 'text', 'field','name'],'safe'],
+            
         ];
     }
 
@@ -61,7 +62,12 @@ class TestimonialSearch extends Testimonial
             'id' => $this->id,
         ]);
 
+        $query->joinWith('translations');
+
         $query->andFilterWhere(['like', 'img', $this->img]);
+        $query->andFilterWhere(['like', 'name', $this->name]);
+        $query->andFilterWhere(['like', 'field', $this->field]);
+        $query->andFilterWhere(['like', 'text', $this->text]);
 
         return $dataProvider;
     }

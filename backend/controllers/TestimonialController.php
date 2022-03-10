@@ -4,38 +4,15 @@ namespace backend\controllers;
 
 use common\models\Testimonial;
 use backend\models\TestimonialSearch;
-use yii\web\Controller;
+use Yii;
+use yii\helpers\Url;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
+use yii\imagine\Image;
 
-/**
- * TestimonialController implements the CRUD actions for Testimonial model.
- */
-class TestimonialController extends Controller
+use yii\web\UploadedFile;
+
+class TestimonialController extends DefaultController
 {
-    /**
-     * @inheritDoc
-     */
-    public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
-    }
-
-    /**
-     * Lists all Testimonial models.
-     *
-     * @return string
-     */
     public function actionIndex()
     {
         $searchModel = new TestimonialSearch();
@@ -47,12 +24,7 @@ class TestimonialController extends Controller
         ]);
     }
 
-    /**
-     * Displays a single Testimonial model.
-     * @param int $id ID
-     * @return string
-     * @throws NotFoundHttpException if the model cannot be found
-     */
+ 
     public function actionView($id)
     {
         return $this->render('view', [
@@ -60,19 +32,24 @@ class TestimonialController extends Controller
         ]);
     }
 
-    /**
-     * Creates a new Testimonial model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return string|\yii\web\Response
-     */
+   
     public function actionCreate()
     {
         $model = new Testimonial();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
+            if ($model->load($this->request->post())) {
+                $img = UploadedFile::getInstance($model,'img');
+                if($img){
+                    $nomi  = Yii::$app->getSecurity()->generateRandomString(20).".".$img->extension;
+                    $img->saveAs('images/testimonial/'.$nomi);
+                    $model->img = $nomi;
+                   }else{
+                        $model->img = "no-img.jpg";
+                   }
+                   $model->save();
+                }
                 return $this->redirect(['view', 'id' => $model->id]);
-            }
         } else {
             $model->loadDefaultValues();
         }
@@ -92,11 +69,20 @@ class TestimonialController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $nomi = $model->img ;
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
+        if ($this->request->isPost) {
+            if ($model->load($this->request->post())) {
+                $img = UploadedFile::getInstance($model,'img');
+                    if($img){
+                        $nomi  = Yii::$app->getSecurity()->generateRandomString(20).".".$img->extension;
+                        $img->saveAs('images/testimonial/'.$nomi);
+                        $model->img = $nomi;
+                    }
+                    $model->save();
+                }
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         return $this->render('update', [
             'model' => $model,
         ]);
@@ -111,21 +97,18 @@ class TestimonialController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
+        $model = $this->findModel($id);
+        if(file_exists('images/testimonial/'.$model->img)){
+            unlink('images/testimonial/'.$model->img);
+        }
+        $model->delete();
         return $this->redirect(['index']);
     }
 
-    /**
-     * Finds the Testimonial model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $id ID
-     * @return Testimonial the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
+
     protected function findModel($id)
     {
-        if (($model = Testimonial::findOne(['id' => $id])) !== null) {
+        if (($model = Testimonial::find()->multilingual()->where(['id' => $id])->one()) !== null) {
             return $model;
         }
 

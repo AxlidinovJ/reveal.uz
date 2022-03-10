@@ -31,6 +31,7 @@ class ComposerStaticInit36e083cfcfc596504e5b6e702434962f
         'y' => 
         array (
             'yii\\swiftmailer\\' => 16,
+            'yii\\imagine\\' => 12,
             'yii\\gii\\' => 8,
             'yii\\faker\\' => 10,
             'yii\\debug\\' => 10,
@@ -47,14 +48,6 @@ class ComposerStaticInit36e083cfcfc596504e5b6e702434962f
         'p' => 
         array (
             'phpDocumentor\\Reflection\\' => 25,
-        ),
-        'k' => 
-        array (
-            'kartik\\popover\\' => 15,
-            'kartik\\plugins\\popover\\' => 23,
-            'kartik\\form\\' => 12,
-            'kartik\\editable\\' => 16,
-            'kartik\\base\\' => 12,
         ),
         'c' => 
         array (
@@ -97,6 +90,10 @@ class ComposerStaticInit36e083cfcfc596504e5b6e702434962f
         array (
             'Opis\\Closure\\' => 13,
         ),
+        'I' => 
+        array (
+            'Imagine\\' => 8,
+        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
@@ -127,6 +124,10 @@ class ComposerStaticInit36e083cfcfc596504e5b6e702434962f
         'yii\\swiftmailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2-swiftmailer/src',
+        ),
+        'yii\\imagine\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yiisoft/yii2-imagine/src',
         ),
         'yii\\gii\\' => 
         array (
@@ -169,26 +170,6 @@ class ComposerStaticInit36e083cfcfc596504e5b6e702434962f
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
-        ),
-        'kartik\\popover\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/kartik-v/yii2-popover-x/src',
-        ),
-        'kartik\\plugins\\popover\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/kartik-v/bootstrap-popover-x',
-        ),
-        'kartik\\form\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-activeform/src',
-        ),
-        'kartik\\editable\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/kartik-v/yii2-editable/src',
-        ),
-        'kartik\\base\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/kartik-v/yii2-krajee-base/src',
         ),
         'cebe\\markdown\\' => 
         array (
@@ -294,6 +275,10 @@ class ComposerStaticInit36e083cfcfc596504e5b6e702434962f
         'Opis\\Closure\\' => 
         array (
             0 => __DIR__ . '/..' . '/opis/closure/src',
+        ),
+        'Imagine\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/imagine/imagine/src',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (

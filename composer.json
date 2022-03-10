@@ -20,8 +20,7 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
         "yeesoft/yii2-multilingual": "~1.0.0",
         "wokster/yii2-translation-manager": "v1.1@dev",
-        "kartik-v/yii2-editable": "dev-master",
-        "kartik-v/yii2-export": "@dev"
+        "yiisoft/yii2-imagine": "^2.3"
 
     },
     "require-dev": {

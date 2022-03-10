@@ -75,40 +75,13 @@ return array (
       '@wokster/translationmanager' => $vendorDir . '/wokster/yii2-translation-manager',
     ),
   ),
-  'kartik-v/yii2-krajee-base' => 
+  'yiisoft/yii2-imagine' => 
   array (
-    'name' => 'kartik-v/yii2-krajee-base',
-    'version' => '3.0.4.0',
+    'name' => 'yiisoft/yii2-imagine',
+    'version' => '2.3.0.0',
     'alias' => 
     array (
-      '@kartik/base' => $vendorDir . '/kartik-v/yii2-krajee-base/src',
-    ),
-  ),
-  'kartik-v/yii2-widget-activeform' => 
-  array (
-    'name' => 'kartik-v/yii2-widget-activeform',
-    'version' => '1.6.2.0',
-    'alias' => 
-    array (
-      '@kartik/form' => $vendorDir . '/kartik-v/yii2-widget-activeform/src',
-    ),
-  ),
-  'kartik-v/yii2-popover-x' => 
-  array (
-    'name' => 'kartik-v/yii2-popover-x',
-    'version' => '1.3.5.0',
-    'alias' => 
-    array (
-      '@kartik/popover' => $vendorDir . '/kartik-v/yii2-popover-x/src',
-    ),
-  ),
-  'kartik-v/yii2-editable' => 
-  array (
-    'name' => 'kartik-v/yii2-editable',
-    'version' => 'dev-master',
-    'alias' => 
-    array (
-      '@kartik/editable' => $vendorDir . '/kartik-v/yii2-editable/src',
+      '@yii/imagine' => $vendorDir . '/yiisoft/yii2-imagine/src',
     ),
   ),
 );

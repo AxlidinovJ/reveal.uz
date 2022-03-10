@@ -6,9 +6,7 @@ use common\models\Portfolio;
 use backend\models\PortfolioSearch;
 use common\models\Imgs;
 use Yii;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
 
 /**
@@ -83,7 +81,21 @@ class PortfolioController extends DefaultController
     {
         $model = $this->findModel($id);
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+        if ($this->request->isPost && $model->load($this->request->post())) {
+            $imgs = UploadedFile::getInstances($model,'img');
+            $model->img = 'rasm';
+            $model->save();
+            if($imgs){
+               foreach($imgs as $img){
+                    $rasmlar = new Imgs();
+                    $nomi  = Yii::$app->getSecurity()->generateRandomString(20).".".$img->extension;
+                    $img->saveAs('images/imgs/'.$nomi);
+                    $rasmlar->name = $nomi;
+                    $rasmlar->products_id = $model->id;
+                    $rasmlar->save();
+               }
+            }
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

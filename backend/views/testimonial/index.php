@@ -1,5 +1,6 @@
 <?php
 
+use common\models\Testimonial;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -29,8 +30,16 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'img',
+            //  'img',
+            [
+                'attribute'=>'img',
+                'format'=>'html',
+                'value'=>function($data){
+                    return html::img("/backend/web/images/testimonial/".$data->img,['width'=>'100px']);
+                }
+            ],
+             'field',
+             'name',
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Testimonial $model, $key, $index, $column) {

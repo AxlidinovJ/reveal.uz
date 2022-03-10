@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'yii\\swiftmailer\\' => array($vendorDir . '/yiisoft/yii2-swiftmailer/src'),
+    'yii\\imagine\\' => array($vendorDir . '/yiisoft/yii2-imagine/src'),
     'yii\\gii\\' => array($vendorDir . '/yiisoft/yii2-gii/src'),
     'yii\\faker\\' => array($vendorDir . '/yiisoft/yii2-faker/src'),
     'yii\\debug\\' => array($vendorDir . '/yiisoft/yii2-debug/src'),
@@ -17,11 +18,6 @@ return array(
     'yeesoft\\multilingual\\' => array($vendorDir . '/yeesoft/yii2-multilingual/src'),
     'wokster\\translationmanager\\' => array($vendorDir . '/wokster/yii2-translation-manager'),
     'phpDocumentor\\Reflection\\' => array($vendorDir . '/phpdocumentor/reflection-common/src', $vendorDir . '/phpdocumentor/reflection-docblock/src', $vendorDir . '/phpdocumentor/type-resolver/src'),
-    'kartik\\popover\\' => array($vendorDir . '/kartik-v/yii2-popover-x/src'),
-    'kartik\\plugins\\popover\\' => array($vendorDir . '/kartik-v/bootstrap-popover-x'),
-    'kartik\\form\\' => array($vendorDir . '/kartik-v/yii2-widget-activeform/src'),
-    'kartik\\editable\\' => array($vendorDir . '/kartik-v/yii2-editable/src'),
-    'kartik\\base\\' => array($vendorDir . '/kartik-v/yii2-krajee-base/src'),
     'cebe\\markdown\\' => array($vendorDir . '/cebe/markdown'),
     'Webmozart\\Assert\\' => array($vendorDir . '/webmozart/assert/src'),
     'Symfony\\Polyfill\\Php80\\' => array($vendorDir . '/symfony/polyfill-php80'),
@@ -48,6 +44,7 @@ return array(
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src/Prophecy'),
     'Opis\\Closure\\' => array($vendorDir . '/opis/closure/src'),
+    'Imagine\\' => array($vendorDir . '/imagine/imagine/src'),
     'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
     'Faker\\' => array($vendorDir . '/fakerphp/faker/src/Faker'),
     'Egulias\\EmailValidator\\' => array($vendorDir . '/egulias/email-validator/src'),
