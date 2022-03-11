@@ -24,6 +24,6 @@ $this->title = 'Reveal.uz';
 
     <?=$this->render('team')?>
 
-    <?=$this->render('contact')?>
+    <?=$this->render('contact',['model'=>$model])?>
 
   </main>

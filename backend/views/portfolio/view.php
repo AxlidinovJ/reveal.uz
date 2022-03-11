@@ -1,7 +1,7 @@
 <?php
 
 use common\models\Imgs;
-use yii\helpers\Html;
+use yii\bootstrap4\Html;
 use yii\helpers\Url;
 use yii\widgets\DetailView;
 
@@ -42,6 +42,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             // 'date',
+            [
+                'attribute'=>'url',
+                'format'=>'raw',
+                'value'=>function($data){
+                    return html::a($data->url,$data->url,['target'=>"_blank"]); 
+                }
+            ],
             [
                 'attribute'=>'date',
                 'format'=>'html',

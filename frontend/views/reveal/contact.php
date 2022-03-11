@@ -2,6 +2,9 @@
 <?php
 
 use common\models\ContactUs;
+use yii\bootstrap4\ActiveForm;
+use yii\bootstrap4\Html;
+
 $contactus = ContactUs::find()->orderBy('id DESC')->limit(1)->one()
 
 ?>
@@ -47,30 +50,37 @@ $contactus = ContactUs::find()->orderBy('id DESC')->limit(1)->one()
 
       <div class="container">
         <div class="form">
-          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-            <div class="row">
-              <div class="form-group col-md-6">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-              </div>
-              <div class="form-group col-md-6 mt-3 mt-md-0">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-              </div>
-            </div>
-            <div class="form-group mt-3">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-            </div>
-            <div class="form-group mt-3">
-              <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-            </div>
+          <?php
+          $form = ActiveForm::begin(['options'=>[
+            'class'=>"php-email-form",
+          ],    
+          ]);
+          echo "<div class='row'>";
+          echo $form->field($model,'name',['options'=>[
+            'class'=>'col-md-6',
+          ],'template'=>'{input}'])->textInput(['placeholder'=>Yii::t('app','Name')]);
 
-            <div class="my-3">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-            </div>
+          echo $form->field($model,'phone',['options'=>[
+            'class'=>'col-md-6 mt-3 mt-md-0',
+        ],'template'=>'{input}'])->widget(\yii\widgets\MaskedInput::class, [
+          'mask' => '+999-99-999-99-99',
+      ])->textInput(['placeholder'=>Yii::t('app','Phone'),'value'=>'+998']) ;
+          echo "</div>";
 
-            <div class="text-center"><button type="submit">Send Message</button></div>
-          </form>
+          echo $form->field($model,'title',['options'=>[
+            'class'=>'mt-3',
+        ],'template'=>'{input}'])->textInput(['placeholder'=>Yii::t('app','Title')]);
+
+          echo $form->field($model,'content',['options'=>[
+            'class'=>'mt-3',
+        ],'template'=>'{input}'])->textarea(['rows'=>'5','placeholder'=>Yii::t('app','Message')]);
+
+          echo '<div class="text-center">';
+          echo Html::submitButton('Send Message',['class'=>'mt-3']);
+          echo '</div>';
+          ActiveForm::end();
+
+          ?>
         </div>
 
       </div>

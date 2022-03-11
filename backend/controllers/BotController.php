@@ -4,38 +4,16 @@ namespace backend\controllers;
 
 use common\models\TelegramBot;
 use yii\data\ActiveDataProvider;
-use yii\web\Controller;
+use yii;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
+
 
 /**
  * BotController implements the CRUD actions for TelegramBot model.
  */
-class BotController extends Controller
+class BotController extends DefaultController
 {
-    /**
-     * @inheritDoc
-     */
-    public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
-    }
-
-    /**
-     * Lists all TelegramBot models.
-     *
-     * @return string
-     */
+   
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([

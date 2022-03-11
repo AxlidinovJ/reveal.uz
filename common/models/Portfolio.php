@@ -43,7 +43,8 @@ class Portfolio extends \yii\db\ActiveRecord
     {
         return [
             [['category_id', 'date', 'created_at', 'updated_at'], 'integer'],
-            [['title','content','clent'],'string'],
+            [['title','content','clent','url'],'string'],
+            [['title','content','clent','url'],'trim'],
             ['img','file','extensions'=>'jpg,png,bmp,jpeg','maxFiles' => 6],
         ];
     }

@@ -1,9 +1,10 @@
 <?php
 
-use common\models\Imgs;
 use common\models\Portfolio;
+use common\models\PortfolioCategory;
 use yii\helpers\Url;
-$imgs = Portfolio::find()->orderBy('updated_at DESC')->all()
+$portfolio = Portfolio::find()->orderBy('updated_at DESC')->all();
+$category = PortfolioCategory::find()->all();
 ?>
 <section id="portfolio" class="portfolio">
       <div class="container" data-aos="fade-up">
@@ -16,7 +17,7 @@ $imgs = Portfolio::find()->orderBy('updated_at DESC')->all()
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
-              <?php foreach($imgs as $Img):?>
+              <?php foreach($category as $Img):?>
                 <li data-filter=".filter-<?=strtolower($Img->title)?>"><?=ucfirst($Img->title)?></li>
               <?php endforeach; ?>
             </ul>
@@ -25,7 +26,7 @@ $imgs = Portfolio::find()->orderBy('updated_at DESC')->all()
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
-        <?php foreach($imgs as $Img):
+        <?php foreach($portfolio as $Img):
         if(isset($Img->imgs[0])){
           $rasm  = $Img->imgs[0]->name;
         }else{
@@ -33,7 +34,7 @@ $imgs = Portfolio::find()->orderBy('updated_at DESC')->all()
         }
           
         ?>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-<?=strtolower($Img->title)?>">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-<?=strtolower($Img->category->title)?>">
             <img src="<?=url::to('/backend/web/images/imgs/'.$rasm)?>" class="img-fluid" alt="">
             <div class="portfolio-info">
               <h4><?=ucfirst($Img->title)?></h4>

@@ -31,6 +31,8 @@ class Contact extends \yii\db\ActiveRecord
         return [
             [['content'], 'string'],
             [['name', 'phone', 'title'], 'string', 'max' => 255],
+            [['name', 'phone', 'title','content'], 'required'],
+            
         ];
     }
 

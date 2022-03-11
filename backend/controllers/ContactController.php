@@ -7,35 +7,13 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use Yii;
 /**
  * ContactController implements the CRUD actions for Contact model.
  */
-class ContactController extends Controller
+class ContactController extends DefaultController
 {
-    /**
-     * @inheritDoc
-     */
-    public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
-    }
-
-    /**
-     * Lists all Contact models.
-     *
-     * @return string
-     */
+    
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
