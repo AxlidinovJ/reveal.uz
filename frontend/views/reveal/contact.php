@@ -1,9 +1,15 @@
 
+<?php
+
+use common\models\ContactUs;
+$contactus = ContactUs::find()->orderBy('id DESC')->limit(1)->one()
+
+?>
     <section id="contact">
       <div class="container" data-aos="fade-up">
         <div class="section-header">
           <h2>Contact Us</h2>
-          <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p>
+          <!-- <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p> -->
         </div>
 
         <div class="row contact-info">
@@ -12,7 +18,7 @@
             <div class="contact-address">
               <i class="bi bi-geo-alt"></i>
               <h3>Address</h3>
-              <address>A108 Adam Street, NY 535022, USA</address>
+              <address><?=$contactus->addres?></address>
             </div>
           </div>
 
@@ -20,7 +26,7 @@
             <div class="contact-phone">
               <i class="bi bi-phone"></i>
               <h3>Phone Number</h3>
-              <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+              <p><a href="tel:<?=$contactus->phone?>"><?=$contactus->phone?></a></p>
             </div>
           </div>
 
@@ -28,7 +34,7 @@
             <div class="contact-email">
               <i class="bi bi-envelope"></i>
               <h3>Email</h3>
-              <p><a href="mailto:info@example.com">info@example.com</a></p>
+              <p><a href="mailto:<?=$contactus->email?>"><?=$contactus->email?></a></p>
             </div>
           </div>
 
@@ -36,7 +42,7 @@
       </div>
 
       <div class="container mb-4">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22864.11283411948!2d-73.96468908098944!3d40.630720240038435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sbg!4v1540447494452" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <iframe src="<?=$contactus->location?>" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
       </div>
 
       <div class="container">
