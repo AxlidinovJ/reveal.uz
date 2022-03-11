@@ -58,7 +58,9 @@ class ContactController extends DefaultController
         $model = new Contact();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
+            if ($model->load($this->request->post())) {
+                $model->status = 0;
+                $model->save();
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {

@@ -70,17 +70,19 @@ class TestimonialController extends DefaultController
     {
         $model = $this->findModel($id);
         $nomi = $model->img ;
-
         if ($this->request->isPost) {
             if ($model->load($this->request->post())) {
                 $img = UploadedFile::getInstance($model,'img');
                     if($img){
+                        if(file_exists('images/testimonial/'.$nomi)){
+                            unlink('images/testimonial/'.$nomi);
+                        }
                         $nomi  = Yii::$app->getSecurity()->generateRandomString(20).".".$img->extension;
                         $img->saveAs('images/testimonial/'.$nomi);
-                        $model->img = $nomi;
                     }
-                    $model->save();
-                }
+                    $model->img = $nomi;
+                $model->save();
+            }
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         return $this->render('update', [

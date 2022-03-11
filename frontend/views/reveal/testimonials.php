@@ -21,7 +21,7 @@ $testimonials = Testimonial::find()->orderBy('id DESC')->all();
               <div class="testimonial-item">
                 <p>
                   <img src="assets/img/quote-sign-left.png" class="quote-sign-left" alt="">
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                  <?=$testimonial->text?>
                   <img src="assets/img/quote-sign-right.png" class="quote-sign-right" alt="">
                 </p>
                 <img src="<?=Url::to('/backend/web/images/testimonial/'.$testimonial->img)?>" class="testimonial-img" alt="">

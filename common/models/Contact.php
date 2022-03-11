@@ -30,8 +30,9 @@ class Contact extends \yii\db\ActiveRecord
     {
         return [
             [['content'], 'string'],
+            ['status','integer'],
             [['name', 'phone', 'title'], 'string', 'max' => 255],
-            [['name', 'phone', 'title','content'], 'required'],
+            [['name', 'phone', 'title','content','status'], 'required'],
             
         ];
     }
@@ -47,6 +48,7 @@ class Contact extends \yii\db\ActiveRecord
             'phone' => Yii::t('app', 'Phone'),
             'title' => Yii::t('app', 'Title'),
             'content' => Yii::t('app', 'Content'),
+            'status'=>Yii::t('app','status'),
         ];
     }
 }
