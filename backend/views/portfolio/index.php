@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Portfolio'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Create Portfolio <i class="fa-solid fa-plus"></i>'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>
@@ -43,7 +43,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $data->category->title;
                 }
             ],
-            'date',
+            // 'date',
+            [
+                'attribute'=>'date',
+                'value'=>function(Portfolio $data){
+                    return date('d-M Y',$data->date);
+                }
+            ],
            
             [
                 'class' => ActionColumn::className(),

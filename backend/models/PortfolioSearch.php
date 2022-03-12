@@ -64,10 +64,10 @@ class PortfolioSearch extends Portfolio
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);
-        $query->joinWith('category');
         $query->joinWith('translations');
+        $query->joinWith('category');
 
-        $query->andFilterWhere(['like', 'title', $this->category_id]);
+        $query->andFilterWhere(['like', 'portfolio_category.title', $this->category_id]);
         $query->andFilterWhere(['like', 'portfolio_lang.title', $this->title]);
 
         return $dataProvider;

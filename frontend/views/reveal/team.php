@@ -8,7 +8,7 @@ use yii\helpers\Url;
 <section id="team">
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Our Team</h2>
+          <h2><?=Yii::t('app','Our Team')?></h2>
         </div>
         <div class="row">
           <?php foreach(Team::find()->orderBy('id DESC')->all() as $team):?>

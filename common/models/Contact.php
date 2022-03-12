@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "contact".
@@ -23,23 +24,27 @@ class Contact extends \yii\db\ActiveRecord
         return 'contact';
     }
 
-    /**
-     * {@inheritdoc}
-     */
+  
+  
+
     public function rules()
     {
         return [
             [['content'], 'string'],
-            ['status','integer'],
+            [['status','created_at', 'updated_at'],'integer'],
             [['name', 'phone', 'title'], 'string', 'max' => 255],
             [['name', 'phone', 'title','content','status'], 'required'],
             
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+        ];
+    }
+    
     public function attributeLabels()
     {
         return [
@@ -49,6 +54,8 @@ class Contact extends \yii\db\ActiveRecord
             'title' => Yii::t('app', 'Title'),
             'content' => Yii::t('app', 'Content'),
             'status'=>Yii::t('app','status'),
+            'created_at'=>Yii::t('app','Kelgan vaqti'),
+            'updated_at'=>Yii::t('app','Taxrirlangan vaqti'),
         ];
     }
 }

@@ -67,20 +67,6 @@ $addClass = $session->get('sidebar') ;//?? 'sidebar-collapse';
                                     </p>
                                 </li>
 
-                                <!-- <li class="user-body">
-                                    <div class="row">
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Followers</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Sales</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Friends</a>
-                                        </div>
-                                    </div>
-
-                                </li> -->
                                 <li class="user-footer">
                                     <div class="pull-left">
                                     <?=Html::a("Profile",url::to(['/dashboard/profil']),['class'=>'btn btn-default btn-flat'])?>
@@ -276,10 +262,10 @@ $addClass = $session->get('sidebar') ;//?? 'sidebar-collapse';
                             'label'=>'<i class="fa fa-book" aria-hidden="true"></i><span>Tarjimalar</span>',
                             'url'=>url::to(['/translate-manager/default']),
                         'active' => in_array(Yii::$app->controller->getRoute(), [
-                            'translate-manager/index',
-                            'translate-manager/view',
-                            'translate-manager/update',
-                            'translate-manager/create',
+                            'translate-manager/default/index',
+                            'translate-manager/default/view',
+                            'translate-manager/default/update',
+                            'translate-manager/default/create',
                         ]),
                         ],
                         

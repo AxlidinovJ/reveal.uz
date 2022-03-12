@@ -20,7 +20,7 @@ $this->title = 'Reveal.uz';
 
     <?=$this->render('testimonials')?>
   
-    <?=$this->render('call-to-action')?>
+    <?php //$this->render('call-to-action')?>
 
     <?=$this->render('team')?>
 

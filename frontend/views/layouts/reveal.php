@@ -58,13 +58,13 @@ RevealAsset::register($this);
 
                 <nav id="navbar" class="navbar">
                     <ul>
-                        <li><a class="nav-link scrollto <?=(Yii::$app->controller->getRoute()!='reveal/oneportfolio')?'active':''?>" href="<?=url::home()?>#hero">Home</a></li>
-                        <li><a class="nav-link scrollto" href="<?=url::home()?>#about">About</a></li>
-                        <li><a class="nav-link scrollto" href="<?=url::home()?>#services">Services</a></li>
-                        <li><a class="nav-link scrollto <?=(Yii::$app->controller->getRoute()=='reveal/oneportfolio')?'active':''?>" href="<?=url::home()?>#portfolio">Portfolio</a></li>
-                        <li><a class="nav-link scrollto" href="<?=url::home()?>#team">Team</a></li>
-                        <li><a class="nav-link scrollto" href="<?=url::home()?>#contact">Contact</a></li>
-                       <li class="dropdown"><a href="#"><span>Language</span> <i class="bi bi-chevron-down"></i></a>
+                        <li><a class="nav-link scrollto <?=(Yii::$app->controller->getRoute()!='reveal/oneportfolio')?'active':''?>" href="<?=url::home()?>#hero"><?=Yii::t('app','Home')?></a></li>
+                        <li><a class="nav-link scrollto" href="<?=url::home()?>#about"><?=Yii::t('app','About')?></a></li>
+                        <li><a class="nav-link scrollto" href="<?=url::home()?>#services"><?=Yii::t('app','Services')?></a></li>
+                        <li><a class="nav-link scrollto <?=(Yii::$app->controller->getRoute()=='reveal/oneportfolio')?'active':''?>" href="<?=url::home()?>#portfolio"><?=Yii::t('app','Portfolio')?></a></li>
+                        <li><a class="nav-link scrollto" href="<?=url::home()?>#team"><?=Yii::t('app','Team')?></a></li>
+                        <li><a class="nav-link scrollto" href="<?=url::home()?>#contact"><?=Yii::t('app','Contact')?></a></li>
+                       <li class="dropdown"><a href="#"><span><?=Yii::t('app','Language')?></span> <i class="bi bi-chevron-down"></i></a>
                        <?php
                             
                             use yeesoft\multilingual\widgets\LanguageSwitcher;

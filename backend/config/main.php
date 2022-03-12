@@ -29,6 +29,19 @@ return [
         ],
     ],
     'components' => [
+        'i18n' => [
+            'translations' => [
+                '*' => [
+                    'class' => 'yii\i18n\DbMessageSource',
+                    'db' => 'db',
+                    'sourceLanguage' => 'xx-XX', // Developer language
+                    'sourceMessageTable' => '{{%language_source}}',
+                    'messageTable' => '{{%language_translate}}',
+                    'cachingDuration' => 86400,
+                    'enableCaching' => true,
+                ],
+            ],
+        ],
         'request' => [
             'baseUrl'=>'/admin',
             'csrfParam' => '_csrf-backend',

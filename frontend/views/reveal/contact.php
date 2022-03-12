@@ -11,7 +11,7 @@ $contactus = ContactUs::find()->orderBy('id DESC')->limit(1)->one()
     <section id="contact">
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Contact Us</h2>
+          <h2><?=Yii::t('app','Contact Us')?></h2>
           <!-- <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p> -->
         </div>
 
@@ -20,7 +20,7 @@ $contactus = ContactUs::find()->orderBy('id DESC')->limit(1)->one()
           <div class="col-md-4">
             <div class="contact-address">
               <i class="bi bi-geo-alt"></i>
-              <h3>Address</h3>
+              <h3><?=Yii::t('app','Address')?></h3>
               <address><?=$contactus->addres?></address>
             </div>
           </div>
@@ -28,7 +28,7 @@ $contactus = ContactUs::find()->orderBy('id DESC')->limit(1)->one()
           <div class="col-md-4">
             <div class="contact-phone">
               <i class="bi bi-phone"></i>
-              <h3>Phone Number</h3>
+              <h3><?=Yii::t('app','Phone Number')?></h3>
               <p><a href="tel:<?=$contactus->phone?>"><?=$contactus->phone?></a></p>
             </div>
           </div>
@@ -36,7 +36,7 @@ $contactus = ContactUs::find()->orderBy('id DESC')->limit(1)->one()
           <div class="col-md-4">
             <div class="contact-email">
               <i class="bi bi-envelope"></i>
-              <h3>Email</h3>
+              <h3><?=Yii::t('app','Email')?></h3>
               <p><a href="mailto:<?=$contactus->email?>"><?=$contactus->email?></a></p>
             </div>
           </div>
@@ -76,7 +76,7 @@ $contactus = ContactUs::find()->orderBy('id DESC')->limit(1)->one()
         ],'template'=>'{input}'])->textarea(['rows'=>'5','placeholder'=>Yii::t('app','Message')]);
 
           echo '<div class="text-center">';
-          echo Html::submitButton('Send Message',['class'=>'mt-3']);
+          echo Html::submitButton(Yii::t('app','Send Message'),['class'=>'mt-3']);
           echo '</div>';
           ActiveForm::end();
 

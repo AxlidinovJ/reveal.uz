@@ -37,16 +37,16 @@ $count = count($imgs);
 
           <div class="col-lg-4">
             <div class="portfolio-info">
-              <h3>Project information</h3>
+              <h3><?=Yii::t('app','Project information')?></h3>
               <ul>
-                <li><strong>Category</strong>: <?=$model->category->title?></li>
-                <li><strong>Client</strong>: <?=$model->clent?></li>
-                <li><strong>Project date</strong>: <?=date('d-M Y',$model->date)?></li>
-                <li><strong>Project URL</strong>: <a href="<?=$model->url?>" target="_blank"><?=$model->url?></a></li>
+                <li><strong><?=Yii::t('app','Category')?></strong>: <?=$model->category->title?></li>
+                <li><strong><?=Yii::t('app','Client')?></strong>: <?=$model->clent?></li>
+                <li><strong><?=Yii::t('app','Project date')?></strong>: <?=date('d-M Y',$model->date)?></li>
+                <li><strong><?=Yii::t('app','Project URL')?></strong>: <a href="<?=$model->url?>" target="_blank"><?=$model->url?></a></li>
               </ul>
             </div>
             <div class="portfolio-description">
-              <h2>This is an example of portfolio detail</h2>
+              <h2><?=Yii::t('app','This is an example of portfolio detail')?></h2>
               <p>
               <?=$model->content?>
               </p>
