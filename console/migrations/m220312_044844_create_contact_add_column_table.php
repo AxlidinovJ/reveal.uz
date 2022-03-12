@@ -12,7 +12,8 @@ class m220312_044844_create_contact_add_column_table extends Migration
      */
     public function safeUp()
     {
-        $this->addColumn('contact','')
+        $this->addColumn('contact','created_at',$this->integer());
+        $this->addColumn('contact','updated_at',$this->integer());
     }
 
     /**
@@ -20,6 +21,7 @@ class m220312_044844_create_contact_add_column_table extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('{{%contact_add_column}}');
+        $this->dropColumn('contact','created_at');
+        $this->dropColumn('contact','updated_at');
     }
 }
