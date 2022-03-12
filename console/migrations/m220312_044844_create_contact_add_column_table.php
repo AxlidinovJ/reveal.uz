@@ -12,9 +12,7 @@ class m220312_044844_create_contact_add_column_table extends Migration
      */
     public function safeUp()
     {
-        $this->createTable('{{%contact_add_column}}', [
-            'id' => $this->primaryKey(),
-        ]);
+        $this->addColumn('contact','')
     }
 
     /**
