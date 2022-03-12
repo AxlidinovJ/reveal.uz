@@ -31,6 +31,7 @@ class ContactUs extends \yii\db\ActiveRecord
         return [
             [['location'], 'string'],
             [['addres', 'phone', 'email'], 'string', 'max' => 255],
+            [['addres', 'phone', 'email','location'], 'required'],
         ];
     }
 

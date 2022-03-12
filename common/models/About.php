@@ -36,6 +36,8 @@ class About extends \yii\db\ActiveRecord
         ];
     }
 
+    const CREATE = 'create';
+    const UPDATE = 'update';
 
     public function rules()
     {
@@ -43,6 +45,9 @@ class About extends \yii\db\ActiveRecord
             [['created_at', 'updated_at'], 'integer'],
             [['img'], 'string', 'max' => 100],
             [['title', 'subtitle','items'],'string'],
+            
+            [['title', 'subtitle','items','img'],'required','on'=>self::CREATE],
+            [['title', 'subtitle','items'],'required','on'=>self::UPDATE],
             
         ];
     }

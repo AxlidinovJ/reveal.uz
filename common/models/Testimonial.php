@@ -25,12 +25,17 @@ class Testimonial extends \yii\db\ActiveRecord
     {
         return 'testimonial';
     }
+    const CREATE = 'create';
+    const UPDATE = 'update';
 
     public function rules()
     {
         return [
             [['img'], 'string', 'max' => 255],
             [[ 'text', 'field','name'],'trim'],
+
+            [[ 'text', 'field','name','img'],'required','on'=>self::CREATE],
+            [[ 'text', 'field','name'],'required','on'=>self::UPDATE],
         ];
     }
 

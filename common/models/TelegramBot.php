@@ -29,6 +29,7 @@ class TelegramBot extends \yii\db\ActiveRecord
     {
         return [
             [['token', 'kanal', 'guruh'], 'string', 'max' => 255],
+            [['token', 'kanal', 'guruh'], 'required'],
         ];
     }
 

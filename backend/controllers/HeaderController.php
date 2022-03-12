@@ -45,6 +45,7 @@ class HeaderController extends DefaultController
     public function actionCreate()
     {
         $model = new Header();
+        $model->scenario = Header::CREATE;
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post())) {
@@ -71,8 +72,10 @@ class HeaderController extends DefaultController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $nomi = $model->img;
+        $model->scenario = Header::UPDATE;
 
+        $nomi = $model->img;
+        
         if ($this->request->isPost && $model->load($this->request->post())) {
             $img = UploadedFile::getInstance($model,'img');
             if($img){

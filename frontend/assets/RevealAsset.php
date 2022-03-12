@@ -17,6 +17,7 @@ class RevealAsset extends AssetBundle
         'assets/vendor/glightbox/css/glightbox.min.css',
         'assets/vendor/swiper/swiper-bundle.min.css',
         'assets/css/style.css',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css',
         
     ];
     public $js = [

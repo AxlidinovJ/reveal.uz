@@ -32,11 +32,18 @@ class Clients extends \yii\db\ActiveRecord
         ];
     }
 
+    const CREATE = 'create';
+    const UPDATE = 'update';
+
     public function rules()
     {
         return [
             [['created_at', 'updated_at'], 'integer'],
             [['img', 'title'], 'string', 'max' => 255],
+            [['img', 'title'], 'required', 'on' => self::CREATE],
+            [['title'], 'required', 'on' => self::UPDATE],
+            
+            
         ];
     }
 

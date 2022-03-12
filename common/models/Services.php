@@ -18,15 +18,14 @@ class Services extends \yii\db\ActiveRecord
         return 'services';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function rules()
     {
         return [
             [['created_at', 'updated_at'], 'integer'],
             [['img'], 'string', 'max' => 255],
             [['title','content'],'string'],
+            [['title','content','img'],'required'],
+
         ];
     }
     public function behaviors()

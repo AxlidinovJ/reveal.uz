@@ -35,12 +35,17 @@ class Team extends \yii\db\ActiveRecord
             TimestampBehavior::class,
        ];
    }
+   const CREATE = 'create';
+   const UPDATE = 'update';
+
     
     public function rules()
     {
         return [
             [['created_at', 'updated_at'], 'integer'],
             [['name', 'img', 'field', 'twitter', 'telegram', 'ok', 'linkedin'], 'string', 'max' => 255],
+            [['name', 'img', 'field'], 'required','on'=>self::CREATE],
+            [['name', 'field'], 'required','on'=>self::UPDATE],
         ];
     }
 

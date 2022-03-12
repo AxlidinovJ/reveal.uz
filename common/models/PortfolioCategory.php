@@ -33,6 +33,7 @@ class PortfolioCategory extends \yii\db\ActiveRecord
         return [
             [['created_at', 'updated_at'], 'integer'],
             [['title'], 'string', 'max' => 50],
+            ['title','required'],
         ];
     }
 

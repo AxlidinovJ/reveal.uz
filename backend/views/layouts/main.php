@@ -1,17 +1,15 @@
 <?php
 
 use backend\assets\AdminAsset;
-
-use common\models\ContactUs;
+use common\models\Contact;
 
 use common\widgets\Alert;
 use yii\bootstrap4\Html;
 use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use yii\widgets\Menu;
+$xabarlarSoni = Contact::find()->where('status=0')->count();
 
-
-// $newMessageCount = count(ContactUs::find()->where(['status'=>0])->all());
 
 // use yii\widgets\Menu;
 AdminAsset::register($this);
@@ -223,7 +221,7 @@ $addClass = $session->get('sidebar') ;//?? 'sidebar-collapse';
                             ]),
                         ],
                         [
-                            'label'=>'<i class="fa fa-github"></i><span>Team</span>',
+                            'label'=>'<i class="fa-solid fa-sitemap"></i> <span>Team</span>',
                             'url'=>url::to(['/team/index']),
                             'active' => in_array(Yii::$app->controller->getRoute(), [
                                 'team/index',
@@ -233,7 +231,7 @@ $addClass = $session->get('sidebar') ;//?? 'sidebar-collapse';
                             ]),
                         ],
                         [
-                            'label'=>'<i class="fa fa-github"></i><span>Kontakt us</span>',
+                            'label'=>'<i class="fa-solid fa-address-card"></i> <span>Kontakt us</span>',
                             'url'=>url::to(['/contactus/index']),
                             'active' => in_array(Yii::$app->controller->getRoute(), [
                                 'contactus/index',
@@ -243,7 +241,9 @@ $addClass = $session->get('sidebar') ;//?? 'sidebar-collapse';
                             ]),
                         ],
                         [
-                            'label'=>'<i class="fa fa-github"></i><span>Kontakt</span>',
+                            'label'=>'<i class="fa-solid fa-address-book"></i> <span>Kontakt</span><span class="pull-right-container">
+                            <span class="label label-primary pull-right">'.$xabarlarSoni.'</span>
+                            </span>',
                             'url'=>url::to(['/contact/index']),
                             'active' => in_array(Yii::$app->controller->getRoute(), [
                                 'contact/index',
@@ -253,7 +253,17 @@ $addClass = $session->get('sidebar') ;//?? 'sidebar-collapse';
                             ]),
                         ],
                         [
-                            'label'=>'<i class="fa fa-reddit-square" aria-hidden="true"></i><span>Bot sozlamalri</span>',
+                            'label'=>'<i class="fa-brands fa-facebook-messenger"></i> <span>Tarmoqlar</span>',
+                            'url'=>url::to(['/tarmoqlar/index']),
+                            'active' => in_array(Yii::$app->controller->getRoute(), [
+                                'tarmoqlar/index',
+                                'tarmoqlar/view',
+                                'tarmoqlar/update',
+                                'tarmoqlar/create',
+                            ]),
+                        ],
+                        [
+                            'label'=>'<i class="fa-solid fa-robot"></i> <span>Bot sozlamalri</span>',
                             'url'=>url::to(['/bot/index']),
                             'active' => in_array(Yii::$app->controller->getRoute(), [
                                 'bot/index',

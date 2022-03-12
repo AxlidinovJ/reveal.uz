@@ -17,6 +17,7 @@ class AdminAsset extends AssetBundle
         'dist/css/AdminLTE.min.css',
         'dist/css/skins/_all-skins.min.css',
         'css/jk.css',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css',
     
     ];
     public $js = [

@@ -24,16 +24,24 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
+        'rowOptions'=>function($data){
+            if($data->status){
+                // return ['class'=>'primary'];
+            }else{
+                return ['class'=>'success'];
+            }
+        },
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            // 'id',
             'name',
             'phone',
             'title',
-            'content:ntext',
+            // 'content:ntext',
             [
                 'class' => ActionColumn::className(),
+                'template'=>'{view}<br>{delete}',
                 'urlCreator' => function ($action, Contact $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'id' => $model->id]);
                  }

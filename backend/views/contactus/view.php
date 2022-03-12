@@ -33,7 +33,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'addres',
             'phone',
             'email:email',
-            'location:ntext',
+            // 'location:ntext',
+            [
+                'attribute'=>'location',
+                'format'=>'raw',
+                'value'=>function($data){
+                    return '<iframe src="'.$data->location.'" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>';
+                }
+            ],
         ],
     ]) ?>
 

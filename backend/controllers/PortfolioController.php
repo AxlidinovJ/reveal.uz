@@ -43,11 +43,14 @@ class PortfolioController extends DefaultController
     public function actionCreate()
     {
         $model = new Portfolio();
+        $model->scenario = Portfolio::CREATE;
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post())) {
                 $imgs = UploadedFile::getInstances($model,'img');
                 $model->img = 'rasm';
+                $d = strtotime($model->date);
+                $model->date = $d;
                 $model->save();
                 if($imgs){
                    foreach($imgs as $img){
@@ -60,10 +63,10 @@ class PortfolioController extends DefaultController
                    }
                 }
                 return $this->redirect(['view', 'id' => $model->id]);
-            }
         } else {
             $model->loadDefaultValues();
         }
+    }
 
         return $this->render('create', [
             'model' => $model,
@@ -80,10 +83,13 @@ class PortfolioController extends DefaultController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $model->scenario = Portfolio::UPDATE;
 
         if ($this->request->isPost && $model->load($this->request->post())) {
             $imgs = UploadedFile::getInstances($model,'img');
             $model->img = 'rasm';
+            $d = strtotime($model->date);
+            $model->date = $d;
             $model->save();
             if($imgs){
                foreach($imgs as $img){

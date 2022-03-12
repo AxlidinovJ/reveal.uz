@@ -23,16 +23,16 @@ class RevealController extends Controller
         if($model->load(Yii::$app->request->post()) ){
             $model->status = 0;
 
-        //     if($model->save()){
-        //         $link = $_SERVER['SERVER_NAME']."".Url::to(['admin/contact/view','id'=>$model->id]);
-        //         $text = "<b>".$model->id." - raqamli murojat</b>\n<b>⚡️Name:</b> ".$model->name."\n<b>☎️Tel:</b> ".$model->phone."\n<b>🎟Title: </b>".$model->title."<b>📝 Text:</b> ".substr($model->content,0,500)." \n\nLink: $link";
-        //         Yii::$app->session->setFlash('success',"success");
-        //         $bot->sendMessage($token[0]->kanal,$text);
-        //         $bot->sendMessage($token[0]->guruh,$text);
-        //     }else{
-        //         Yii::$app->session->setFlash('success',"error");
-        //     }
-        //     return $this->redirect(['index']);
+            if($model->save()){
+                $link = $_SERVER['SERVER_NAME']."".Url::to(['admin/contact/view','id'=>$model->id]);
+                $text = "<b>".$model->id." - raqamli murojat</b>\n<b>⚡️Name:</b> ".$model->name."\n<b>☎️Tel:</b> ".$model->phone."\n<b>🎟Title: </b>".$model->title."\n<b>📝 Text:</b> ".substr($model->content,0,500)." \n\nLink: $link";
+                Yii::$app->session->setFlash('success',"success");
+                $bot->sendMessage($token[0]->kanal,$text);
+                $bot->sendMessage($token[0]->guruh,$text);
+            }else{
+                Yii::$app->session->setFlash('success',"error");
+            }
+            return $this->redirect(['index']);
         print_r($model);
         }
         return $this->render('index',['model'=>$model]);

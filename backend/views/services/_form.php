@@ -1,5 +1,6 @@
 <?php
 
+use dominus77\iconpicker\IconPicker;
 use yeesoft\multilingual\widgets\ActiveForm;
 use yii\helpers\Html;
 
@@ -11,7 +12,7 @@ use yii\helpers\Html;
 
     <?=$form->languageSwitcher($model)?>
 
-    <?= $form->field($model, 'img')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'img')->textInput(['maxlength' => true])->widget(IconPicker::class, []) ?>
 
     <?= $form->field($model, 'title')->textInput() ?>
 

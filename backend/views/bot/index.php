@@ -17,10 +17,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a(Yii::t('app', 'Create Telegram Bot'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -33,6 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'guruh',
             [
                 'class' => ActionColumn::className(),
+                'template'=>'{update}',
                 'urlCreator' => function ($action, TelegramBot $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'id' => $model->id]);
                  }

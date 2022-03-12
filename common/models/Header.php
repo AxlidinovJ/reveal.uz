@@ -39,12 +39,18 @@ class Header extends \yii\db\ActiveRecord
         ];
     }
 
+    const CREATE = 'create';
+    const UPDATE = 'update';
+
     public function rules()
     {
         return [
             [['created_at', 'updated_at'], 'integer'],
             [['img'], 'file', 'extensions' => 'jpg,png,bmp,jpeg'],
             [['title', 'about_btn','project_btn'],'string','min'=>4,'max'=>255],
+            
+            [['title', 'about_btn','project_btn','img'],'required','on'=>self::CREATE],
+            [['title', 'about_btn','project_btn'],'required','on'=>self::UPDATE],
         ];
     }
 

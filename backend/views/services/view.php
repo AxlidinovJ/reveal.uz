@@ -30,7 +30,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-           'img',
+        //    'img',
+        [
+            'attribute'=>'img',
+            'format'=>'raw',
+            'value'=>function($data){
+                return "<i class='".$data->img."'></i>";
+            }
+        ],
            'title',
            'content',
             [

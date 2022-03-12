@@ -23,32 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php Pjax::begin(); ?>
 
 
-    <?php
-    
-    $gridColumns = [
-        ['class' => 'yii\grid\SerialColumn'],
-        'id',
-        'img',
-        'title',
-        'content',
-        ['class' => 'yii\grid\ActionColumn'],
-    ];
-    
-    // // Renders a export dropdown menu
-    // echo ExportMenu::widget([
-    //     'dataProvider' => $dataProvider,
-    //     'columns' => $gridColumns,
-    //     'clearBuffers' => true, //optional
-    // ]);
-    
-    // // You can choose to render your own GridView separately
-    // echo \kartik\grid\GridView::widget([
-    //     'dataProvider' => $dataProvider,
-    //     'filterModel' => $searchModel,
-    //     'columns' => $gridColumns
-    // ]);
-    
-    ?>
+
 
     <?php echo GridView::widget([
         'dataProvider' => $dataProvider,
@@ -57,7 +32,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'class' => 'yii\grid\SerialColumn',
             ],
             'id',
-            'img',
+            // 'img',
+            [
+                'attribute'=>'img',
+                'format'=>'raw',
+                'value'=>function($data){
+                    return "<i class='".$data->img."'></i>";
+                }
+            ],
             'title',
             'content',
             [

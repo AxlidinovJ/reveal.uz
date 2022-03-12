@@ -58,6 +58,7 @@ class ClientsController extends DefaultController
     public function actionCreate()
     {
         $model = new Clients();
+        $model->scenario = Clients::CREATE;
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post())) {
@@ -90,6 +91,7 @@ class ClientsController extends DefaultController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $model->scenario = Clients::UPDATE;
 
         $nomi = $model->img;
 

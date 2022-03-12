@@ -48,6 +48,7 @@ class TeamController extends DefaultController
     public function actionCreate()
     {
         $model = new Team();
+        $model->scenario = Team::CREATE;
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post())) {
@@ -82,6 +83,7 @@ class TeamController extends DefaultController
     {
         $model = $this->findModel($id);
         $nomi = $model->img ;
+        $model->scenario = Team::UPDATE;
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post())) {

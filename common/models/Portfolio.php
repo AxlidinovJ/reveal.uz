@@ -38,14 +38,20 @@ class Portfolio extends \yii\db\ActiveRecord
         ];
     }
 
+    const CREATE = 'create';
+    const UPDATE = 'update';
 
     public function rules()
     {
         return [
-            [['category_id', 'date', 'created_at', 'updated_at'], 'integer'],
+            [['category_id','created_at', 'updated_at'], 'integer'],
             [['title','content','clent','url'],'string'],
-            [['title','content','clent','url'],'trim'],
+            [['title','content','clent','date','url'],'trim'],
             ['img','file','extensions'=>'jpg,png,bmp,jpeg','maxFiles' => 6],
+
+            [['category_id','title','content','clent','date','url','img'], 'required','on'=>self::CREATE],
+            [['category_id','title','content','clent','date','url'], 'required','on'=>self::UPDATE],
+
         ];
     }
 

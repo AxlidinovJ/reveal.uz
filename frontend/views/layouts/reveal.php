@@ -1,11 +1,13 @@
 <?php
 
-
+use common\models\ContactUs;
+use common\models\Tarmoqlar;
 use common\widgets\Alert;
 use frontend\assets\RevealAsset;
 use yii\bootstrap4\Breadcrumbs;
 use yii\bootstrap4\Html;
 use yii\helpers\Url;
+$contact = ContactUs::find()->limit(1)->select('phone, email')->orderBy('id DESC')->one();
 
 RevealAsset::register($this);
 ?>
@@ -18,6 +20,7 @@ RevealAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+    <!-- <link rel="stylesheet" href="<?=url::to('vendor/fortawesome/font-awesome/css/all.min.css')?>"> -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
     <?php $this->head() ?>
 </head>
@@ -32,14 +35,13 @@ RevealAsset::register($this);
             <div class="container d-flex justify-content-center justify-content-md-between">
                 <div class="contact-info d-flex align-items-center">
                     <i class="bi bi-envelope d-flex align-items-center"><a
-                            href="mailto:contact@example.com">contact@example.com</a></i>
-                    <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+                            href="mailto:<?=$contact->email?>"><?=$contact->email?></a></i>
+                    <i class="bi bi-phone d-flex align-items-center ms-4"><span><?=$contact->phone?></span></i>
                 </div>
                 <div class="social-links d-none d-md-flex align-items-center">
-                    <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+                    <?php foreach(Tarmoqlar::find()->orderBy('id DESC')->limit(5)->all() as $tarmoq):?>
+                    <a href="<?=$tarmoq->url?>" class="twitter"><i class="<?=$tarmoq->img?>"></i></a>
+                    <?php endforeach;?>
                 </div>
             </div>
         </section><!-- End Top Bar-->
@@ -56,12 +58,12 @@ RevealAsset::register($this);
 
                 <nav id="navbar" class="navbar">
                     <ul>
-                        <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                        <li><a class="nav-link scrollto" href="#about">About</a></li>
-                        <li><a class="nav-link scrollto" href="#services">Services</a></li>
-                        <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
-                        <li><a class="nav-link scrollto" href="#team">Team</a></li>
-                        <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+                        <li><a class="nav-link scrollto <?=(Yii::$app->controller->getRoute()!='reveal/oneportfolio')?'active':''?>" href="<?=url::home()?>#hero">Home</a></li>
+                        <li><a class="nav-link scrollto" href="<?=url::home()?>#about">About</a></li>
+                        <li><a class="nav-link scrollto" href="<?=url::home()?>#services">Services</a></li>
+                        <li><a class="nav-link scrollto <?=(Yii::$app->controller->getRoute()=='reveal/oneportfolio')?'active':''?>" href="<?=url::home()?>#portfolio">Portfolio</a></li>
+                        <li><a class="nav-link scrollto" href="<?=url::home()?>#team">Team</a></li>
+                        <li><a class="nav-link scrollto" href="<?=url::home()?>#contact">Contact</a></li>
                        <li class="dropdown"><a href="#"><span>Language</span> <i class="bi bi-chevron-down"></i></a>
                        <?php
                             

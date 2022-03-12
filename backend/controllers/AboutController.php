@@ -58,7 +58,7 @@ class AboutController extends DefaultController
     public function actionCreate()
     {
         $model = new About();
-
+        $model->scenario = About::CREATE;
         if ($this->request->isPost) {
             if ($model->load($this->request->post())) {
                 $img = UploadedFile::getInstance($model,'img');
@@ -92,7 +92,7 @@ class AboutController extends DefaultController
     {
         $model = $this->findModel($id);
         $nomi = $model->img;
-
+        $model->scenario = About::UPDATE;
         if ($this->request->isPost && $model->load($this->request->post())) {
             $img = UploadedFile::getInstance($model,'img');
             if($img){
